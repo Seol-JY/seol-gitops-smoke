@@ -53,6 +53,8 @@ jobs:
       - uses: docker/build-push-action@v7
         with:
           context: .
+          build-args: |
+            GIT_SHA=${{ steps.tag.outputs.sha }}
           platforms: linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
